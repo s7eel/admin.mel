@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Хост: 127.0.0.1:3306
--- Время создания: Окт 27 2016 г., 23:25
+-- Время создания: Окт 29 2016 г., 17:50
 -- Версия сервера: 5.6.31
 -- Версия PHP: 7.0.8
 
@@ -192,26 +192,27 @@ CREATE TABLE IF NOT EXISTS `main` (
   `id` int(11) NOT NULL,
   `title1` varchar(50) NOT NULL,
   `title2` varchar(50) NOT NULL,
-  `class` varchar(255) NOT NULL
+  `class` varchar(255) NOT NULL,
+  `height` varchar(100) NOT NULL
 ) ENGINE=InnoDB AUTO_INCREMENT=13 DEFAULT CHARSET=utf8;
 
 --
 -- Дамп данных таблицы `main`
 --
 
-INSERT INTO `main` (`id`, `title1`, `title2`, `class`) VALUES
-(1, 'Кафе Ван Гог', '2014/04', 'interio_work landscape furniture cbp-l-grid-masonry-height2'),
-(2, 'Квартира в Днепре', '2012/02', 'interio_life cbp-l-grid-masonry-height1'),
-(3, 'МЖК Звездный', '2014/04', 'interio_life cbp-l-grid-masonry-height1'),
-(4, 'Квартира на Дзержинского', '2014/05', 'interio_life cbp-l-grid-masonry-height2'),
-(5, 'Музейный парк', '2010/01', 'landscape cbp-l-grid-masonry-height2'),
-(6, 'ЖК Панорама', '2014/09', 'interio_life cbp-l-grid-masonry-height1'),
-(7, 'Загородный дом, 120м2', 'Пос. Новоселица', 'interio_life cbp-l-grid-masonry-height1'),
-(8, 'ЖК "Энигма", 120м2', 'г. Днепр', 'interio_life cbp-l-grid-masonry-height1'),
-(9, 'Офис', 'г.Днепр', 'interio_work cbp-l-grid-masonry-height2'),
-(10, 'Вестибюль офиса', 'г. Мелитополь', 'interio_work cbp-l-grid-masonry-height1'),
-(11, 'Офис косметической фирмы', 'г. Днепр', 'interio_work cbp-l-grid-masonry-height1'),
-(12, 'Загородный дом, 250м2', 'г. Москва', 'interio_life cbp-l-grid-masonry-height1');
+INSERT INTO `main` (`id`, `title1`, `title2`, `class`, `height`) VALUES
+(1, 'Кафе Ван Гог', '2014/04', 'interio_work landscape furniture', '2'),
+(2, 'Квартира в Днепре', '2012/02', 'interio_life', '1'),
+(3, 'МЖК Звездный', '2014/04', 'interio_life', '1'),
+(4, 'Квартира на Дзержинского', '2014/05', 'interio_life', '2'),
+(5, 'Музейный парк', '2010/01', 'landscape', '2'),
+(6, 'ЖК Панорама', '2014/09', 'interio_life', '1'),
+(7, 'Загородный дом, 120м2', 'Пос. Новоселица', 'interio_life', '1'),
+(8, 'ЖК "Энигма", 120м2', 'г. Днепр', 'interio_life', '1'),
+(9, 'Офис', 'г.Днепр', 'interio_work', '2'),
+(10, 'Вестибюль офиса', 'г. Мелитополь', 'interio_work', '1'),
+(11, 'Офис косметической фирмы', 'г. Днепр', 'interio_work', '1'),
+(12, 'Загородный дом, 250м2', 'г. Москва', 'interio_life', '1');
 
 --
 -- Индексы сохранённых таблиц
