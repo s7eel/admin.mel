@@ -1,0 +1,43 @@
+div {
+    margin: 10px auto 30px;
+}
+
+.link{
+    height: 70px;
+    width: 170px;
+    float: right;
+    line-height: 70px;
+
+}
+
+p{
+
+    display: inline-block;
+    color: #fff;
+    font-size: 11px;
+    margin-bottom: 10px;
+}
+
+div.link a{
+    margin: 5px;
+
+}
+div.link a img{
+    margin-top: 25px;
+}
+
+footer{
+    width: 70%;
+    min-width: 800px;
+    margin: -10px auto 30px;
+}
+footer h4{
+    margin-top: 5px;
+}
+footer tr img{
+    width: 150px;
+    height: 150px;
+}
+footer th, footer td{
+    text-align: center;
+}

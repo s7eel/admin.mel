@@ -2,9 +2,12 @@
 header('Content-Type: text/html; charset = utf-8');
 
 $id = $_GET['id'];
-include_once './admin/config.php';
+include_once './admin/config/config.php';
 
-$mysqli = new mysqli(DB_HOST,DB_USER,DB_PASS,DB_NAME);
+$mysqli = new mysqli($db['host'],
+	$db['user'],
+	$db['pass'],
+	$db['name']);
 if($mysqli->connect_errno){
 	echo "error with connection to database ->".$mysqli->connect_error;
 	die();

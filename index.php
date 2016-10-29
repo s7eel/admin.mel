@@ -398,22 +398,32 @@
                     <div id="grid-container" class="cbp-l-grid-masonry">
                         <ul>
 	                        <?php
-	                        include_once './admin/config.php';
-	                        $mysqli = new mysqli(DB_HOST,DB_USER,DB_PASS,DB_NAME);
+                            include_once './admin/functions.php';
+	                        include_once './admin/config/config.php';
+	                        $mysqli = new mysqli($db['host'],
+                                $db['user'],
+                                $db['pass'],
+                                $db['name']);
 	                        if($mysqli->connect_errno){
 		                        echo "error with connection to database ->".$mysqli->connect_error;
 		                        die('No connection with database'.__LINE__);
 	                        }
-	                        $query = "SELECT main.id, class, link, title1, title2 FROM main, foto WHERE main.id=foto.link_id AND main_foto_id=\"Y\"";
+	                        $query = "SELECT main.id, class, link, title1, title2, height FROM main, foto WHERE main.id=foto.link_id AND main_foto_id=\"Y\"";
 	                        if ($result = $mysqli->query($query)) {
-		                        while ($row = $result->fetch_assoc()):?>
+		                        while ($row = $result->fetch_assoc()):
+                                    if($row['height']=='1'){
+                                        $height = '260px';
+                                    }else{
+                                        $height = '405px';
+                                    }
+                                    ?>
 
 
 
-			                        <li class="cbp-item <?= " " . $row['class'] . " " ?>">
+			                        <li class="cbp-item <?= " " . $row['class'] . " cbp-l-grid-masonry-height". $row['height'] ?>">
 				                        <a class="cbp-caption" href="/slider.php?id=<?= $row['id'] ?>">
 					                        <div class="cbp-caption-defaultWrap">
-						                        <img src="./assets/img/projects/images/<?= $row['link'] ?>" alt="">
+						                        <img style='height:<?=$height?>' src="./assets/img/projects/images/<?= $row['link'] ?>" alt="">
 					                        8</div>
 					                        <div class="cbp-caption-activeWrap">
 						                        <div class="cbp-l-caption-alignCenter">
