@@ -6,7 +6,7 @@
 		</a>
 	</div>
 	<div class="link">
-		<p> Перейти на сайт</p>
+		<p>Перейти на сайт</p>
 		<a href='#'><img src="./images/site.png" alt="Перейти на сайт"/></a>
 	</div>
 
