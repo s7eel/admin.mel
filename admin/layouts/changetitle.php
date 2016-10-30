@@ -29,7 +29,8 @@
 			<?php
 			include_once './functions.php';
 			foreach ($catalogs as $key => $item):
-				$item['class'] = getclassBYname($item['class']);
+				$class = getclassBYname($item['class']);
+
 			?>
 				<tr>
 					<td class="info" style="width: 200px">
@@ -38,7 +39,7 @@
 					<td class="info" style="width: 200px">
 						<input type="text" value="<?= $item['title2'] ?>" name="title2" form="myform">
 					</td>
-					<td class="info" style="width: 200px"><?= $item['class'] ?></td>
+					<td class="info" style="width: 200px"><?= $class ?></td>
 					<td class="info" style="width: 180px"><img src="../assets/img/projects/images/<?= $item['link'] ?>">
 					</td>
 					<td class="success">

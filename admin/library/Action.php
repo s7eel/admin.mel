@@ -84,6 +84,10 @@ class Action{
 		}
 	}
 
+	/**
+	 * Изменение местоположения каталога относительно каталогов
+	 *Получение каталога по айди, выведение новой страницы с данным каталогом
+	 */
 	public function changecategory(){
 		$title = 'change category of catalog';
 		$id = filter_input(INPUT_POST, 'id');
@@ -92,9 +96,27 @@ class Action{
 		if($catalogs){
 			include_once $this->template_name;
 		}else{
-			die('something has happened :-(');
+			die('something has happened :-( during last page');
 		}
 	}
+	public function savecatalog(){
+		$id = filter_input(INPUT_POST, 'id');
+		$class = array(
+			filter_input(INPUT_POST, 'interio_work'),
+			filter_input(INPUT_POST, 'interio_life'),
+			filter_input(INPUT_POST, 'furniture'),
+			filter_input(INPUT_POST, 'landscape'),
+		);
+		$class = trim(implode(' ', $class));
+		if($this->catStorage->savecatalog($id, $class)){
+			$this->redirect();
+		}else{
+			die('something has happened :-( during last page');
+		}
+
+
+	}
+
 
 
 

@@ -63,6 +63,15 @@ class MainStorage{
 			return false;
 	}
 
+	public function savecatalog($id, $class){
+		$query = "UPDATE main SET class='$class' WHERE id='$id'";
+		if($this->db->query($query)){
+			return TRUE;
+		}else{
+			return FALSE;
+		}
+	}
+
 
 
 
