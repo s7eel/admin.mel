@@ -80,13 +80,21 @@ class Action{
 			$this->catStorage->changeHeightFoto($id, $height);
 			$this->redirect();
 		}else{
-			die('something happened :-(');
+			die('something has happened :-(');
 		}
+	}
 
-
-
-}
-
+	public function changecategory(){
+		$title = 'change category of catalog';
+		$id = filter_input(INPUT_POST, 'id');
+		$layout_name = 'layouts/changecategory.php';
+		$catalogs = $this->catStorage->getcatalogByid($id);
+		if($catalogs){
+			include_once $this->template_name;
+		}else{
+			die('something has happened :-(');
+		}
+	}
 
 
 
