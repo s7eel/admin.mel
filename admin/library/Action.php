@@ -143,7 +143,7 @@ public function addcatalog(){
 		filter_input(INPUT_POST, 'landscape'),
 	);
 	$class = trim(implode(' ', $class));
-	if(!$title1&&!$title2&&!!$height&&!$class){
+	if(empty($title1)||empty($title2)||empty($height)||empty($class)){
 		die('NOT ALL DATA');
 	}else{
 		$this->catStorage->addcatalogdata($title1, $title2, $height, $class);
