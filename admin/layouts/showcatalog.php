@@ -13,16 +13,22 @@
 </div>
 <main>
 
-	<form method="post" action="<?= $_SERVER['PHP_SELF']?>?action=addcatalog">
+	<form method="post" action="<?= $_SERVER['PHP_SELF']?>?action=addcatalog" enctype="multipart/form-data">
 		<h4>Добавление каталога</h4>
 		<div class="col-4">
 			<h4 >Проект</4h><br>
 			<input type="text" size="20" name="title1" placeholder="Название"><br>
 			<input type="text" size="20" name="title2" placeholder="Дата"><br>
 
-			<h4>размер титулього листа</h4>
-			<input type="radio"  name="height" value="1">Низкий 270х260 <br>
-			<input type="radio"  name="height" value="2">Высокий 270х405 <br>
+				<h4>размер титулього листа</h4>
+			<input type="radio" name="height" value="1">Низкий 270х260<br>
+			<input type="radio" name="height" value="2">Высокий 270х405<br>
+		</div>
+
+		<div class="col-4">
+			<h4>Добавить Заглавное фото каталога</4h><br>
+			<input type='file' name="main_foto" accept="image/jpeg"><br>
+			<div>(фото должно быть не более 2МБ)</div>
 		</div>
 
 		<div class="col-4">
@@ -58,9 +64,6 @@
 			</tr>
 			<?php
 			include_once './functions.php';
-//			echo '<pre>';
-//			var_dump($catalogs);
-//			echo '</pre>';
 			foreach ($catalogs as $key => $item):
 				$class = getclassBYname($item['class']);
 				$height = getheightOffoto($item['height']);
@@ -79,12 +82,13 @@
 						<input type="hidden" value="<?=$item['height']?>" name="height">
 <!--						<select>-->
 <!--							<option selected value="">Ничего не делать</option>-->
-<!--							<option>Удалить Каталог</option>-->
-<!--							<option>Изменить Фото в Каталоге</option>-->
-<!--							<option>Изменить Титлы Каталога</option>-->
-<!--							<option>Изменить исходный класс</option>-->
-<!--							<option>Изменить категорию Каталога</option>-->
+<!--							<option value="?action=deletecatalog">Удалить Каталог</option>-->
+<!--							<option value="?action=changefoto">Изменить Фото в Каталоге</option>-->
+<!--							<option value="?action=changetitle">Изменить Титлы Каталога</option>-->
+<!--							<option value="?action=changeheight">Изменить высоту Каталога</option>-->
+<!--							<option value="?action=changecategory">Изменить категорию Каталога</option>-->
 <!--						</select>-->
+						<!--<input type="submit" formaction="" value="Сделать"> -->
 						<input type="submit" value="Удалить Каталог" formaction="<?= $_SERVER['PHP_SELF']?>?action=deletecatalog">
 						<input type="submit" value="Изменить Фото в Каталоге" formaction="<?= $_SERVER['PHP_SELF']?>?action=changefoto">
 						<input type="submit" value="Изменить Титлы Каталога" formaction="<?= $_SERVER['PHP_SELF']?>?action=changetitle">

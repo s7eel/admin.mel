@@ -130,26 +130,34 @@ class Action{
 		}
 	}
 	/**
-	 * Добавление каталога
+	 * Добавление каталога, тут надо доделать внутри функции дефолтное значение $link и
+	 * передавать его внутрь функции addcatalogdata();
 	 */
-public function addcatalog(){
-	$title1 = filter_input(INPUT_POST, 'title1');
-	$title2 = filter_input(INPUT_POST, 'title2');
-	$height = filter_input(INPUT_POST, 'height');
-	$class = array(
-		filter_input(INPUT_POST, 'interio_work'),
-		filter_input(INPUT_POST, 'interio_life'),
-		filter_input(INPUT_POST, 'furniture'),
-		filter_input(INPUT_POST, 'landscape'),
-	);
-	$class = trim(implode(' ', $class));
-	if(empty($title1)||empty($title2)||empty($height)||empty($class)){
-		die('NOT ALL DATA');
-	}else{
-		$this->catStorage->addcatalogdata($title1, $title2, $height, $class);
-		$this->redirect();
+	public function addcatalog(){
+		$title1 = filter_input(INPUT_POST, 'title1');
+		$title2 = filter_input(INPUT_POST, 'title2');
+		$height = filter_input(INPUT_POST, 'height');
+		$class = array(
+			filter_input(INPUT_POST, 'interio_work'),
+			filter_input(INPUT_POST, 'interio_life'),
+			filter_input(INPUT_POST, 'furniture'),
+			filter_input(INPUT_POST, 'landscape'),
+		);
+		$class = trim(implode(' ', $class));
+		$main_foto = $_FILES['main_foto'];
+		if($main_foto['error']===4){
+			//Код отработает если не введена заглавная фотография
+			if(!empty($title1)&&!empty($title2)&&!empty($height)&&!empty($class)){
+				$this->catStorage->addcatalogdata($title1, $title2, $height, $class, $link='default.jpg');
+				$this->redirect();
+			}
+			die('NOT ALL DATA');
+		}else{
+			//Код отработает если введена заглавная фотография
+		}
 	}
-}
+
+
 
 
 

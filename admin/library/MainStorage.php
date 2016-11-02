@@ -72,14 +72,14 @@ class MainStorage{
 		}
 	}
 
-	public function addcatalogdata($title1, $title2, $height, $class){
+	public function addcatalogdata($title1, $title2, $height, $class, $link){
 		$query = "INSERT INTO main (title1, title2, height, class) VALUES ('$title1','$title2', '$height', '$class')";
 		if ($this->db->query($query)) {
 			$id = $this->db->insert_id;
-			$link = 'default.jpg';
+
 			$query = "INSERT INTO foto (link, link_id, main_foto_id) VALUES ('$link', '$id', 'Y')";
 			if($this->db->query($query)){
-				return true;
+				return TRUE;
 			}else{
 				return FALSE;
 			}
