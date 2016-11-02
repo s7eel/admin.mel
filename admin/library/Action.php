@@ -148,12 +148,83 @@ class Action{
 		if($main_foto['error']===4){
 			//Код отработает если не введена заглавная фотография
 			if(!empty($title1)&&!empty($title2)&&!empty($height)&&!empty($class)){
-				$this->catStorage->addcatalogdata($title1, $title2, $height, $class, $link='default.jpg');
-				$this->redirect();
+				//Возвращает айди вновь образованного каталога, для дальнейшей вставки дефолтного фото на главную страницу
+				$res = $this->catStorage->addcatalogdata($title1, $title2, $height, $class);
+				if($res != FALSE){
+					$this->catStorage->addmainfoto($res, $link='default.jpg');
+					$this->redirect();
+				}else{
+					die('I cant add default main_foto');
+				}
 			}
-			die('NOT ALL DATA');
+			die('NOT ALL DATA in title1, title2, height, class');
 		}else{
 			//Код отработает если введена заглавная фотография
+			$types = array("image/jpeg",);
+			if ($main_foto['error'] == UPLOAD_ERR_OK) {
+				if (in_array($main_foto['type'], $types)) {
+					if ($main_foto['size'] <= 3 * 1024 * 1024) {//Не более 3 мб
+						$file_name_parts = explode('.',$main_foto['name']);
+						$file_extension = array_pop($file_name_parts);
+						$file_base_name = implode('',$file_name_parts);
+						$file_name = md5($file_base_name.rand(1, getrandmax()));
+						$file_name.='.'.$file_extension;
+						$path = '../assets/img/projects/images/' . $file_name;
+						//Вносим титлы и др инфо без фото, получаем айди новосозданного каталога до переноса фото
+						//в сновную папку с фото
+						if(!empty($title1)&&!empty($title2)&&!empty($height)&&!empty($class)){
+							$res = $this->catStorage->addcatalogdata($title1, $title2, $height, $class);
+						}else{
+							die('NOT ALL DATA in title1, title2, height, class');
+						}
+						if (move_uploaded_file($main_foto['tmp_name'], $path)) {
+						//Переносим фото в основную папку, спрашиваем были ошибка при внесении других данных
+						// и вносим фото как заглавное
+								if($res != FALSE){
+									$this->catStorage->addmainfoto($res, $file_name);
+									$this->redirect();
+								}
+									die('I cant add main_foto into table');
+						} else {
+							$message = "problem with moving";
+						}
+					} else {
+						$message = "file is too large";
+					}
+				} else {
+					$message = "invalid type of file";
+				}
+			} else {
+				switch ($main_foto['error']) {
+					case UPLOAD_ERR_INI_SIZE:
+						$message = "The uploaded file exceeds the upload_max_filesize directive in php.ini";
+						break;
+					case UPLOAD_ERR_FORM_SIZE:
+						$message = "The uploaded file exceeds the MAX_FILE_SIZE directive that was specified in the HTML form";
+						break;
+					case UPLOAD_ERR_PARTIAL:
+						$message = "The uploaded file was only partially uploaded";
+						break;
+					case UPLOAD_ERR_NO_FILE:
+						$message = "No file was uploaded";
+						break;
+					case UPLOAD_ERR_NO_TMP_DIR:
+						$message = "Missing a temporary folder";
+						break;
+					case UPLOAD_ERR_CANT_WRITE:
+						$message = "Failed to write file to disk";
+						break;
+					case UPLOAD_ERR_EXTENSION:
+						$message = "File upload stopped by extension";
+						break;
+					default:
+						$message = "Unknown upload error";
+						break;
+				}
+			}
+			if (!empty($message)) {
+				echo $message;
+			}
 		}
 	}
 

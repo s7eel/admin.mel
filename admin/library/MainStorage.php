@@ -63,6 +63,11 @@ class MainStorage{
 			return false;
 	}
 
+	/**
+	 * @param $id - айди изменяемого каталога
+	 * @param $class - новый класс для сохранения
+	 * @return bool - тру в случае успеха или фолс в случае неудачи
+	 */
 	public function savecatalog($id, $class){
 		$query = "UPDATE main SET class='$class' WHERE id='$id'";
 		if($this->db->query($query)){
@@ -72,20 +77,36 @@ class MainStorage{
 		}
 	}
 
-	public function addcatalogdata($title1, $title2, $height, $class, $link){
+	/**
+	 * @param $title1 - Добавление нового титл1 в каталог
+	 * @param $title2 - Добавление нового титл2 в каталог
+	 * @param $height - Добавление высоты нового каталога
+	 * @param $class - Добавление нового класса в каталог
+	 * @return bool|mixed - возвращает либо айди новоносозданного каталога либо FALSE
+	 */
+	public function addcatalogdata($title1, $title2, $height, $class){
 		$query = "INSERT INTO main (title1, title2, height, class) VALUES ('$title1','$title2', '$height', '$class')";
 		if ($this->db->query($query)) {
 			$id = $this->db->insert_id;
-
-			$query = "INSERT INTO foto (link, link_id, main_foto_id) VALUES ('$link', '$id', 'Y')";
-			if($this->db->query($query)){
-				return TRUE;
-			}else{
-				return FALSE;
-			}
+			return $id;
 		} else {
 			return FALSE;
 		}
+	}
+
+	/**
+	 * @param $id - айди новосозданного каталога
+	 * @param $link - ссылка на дефолтное или любое другое изображение
+	 * @return bool
+	 */
+	public function addmainfoto($id, $link){
+		$query = "INSERT INTO foto (link, link_id, main_foto_id) VALUES ('$link', '$id', 'Y')";
+		if($this->db->query($query)){
+			return TRUE;
+		}else{
+			return FALSE;
+		}
+
 	}
 
 
