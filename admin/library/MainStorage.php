@@ -98,6 +98,7 @@ class MainStorage{
 	 * @param $id - айди новосозданного каталога
 	 * @param $link - ссылка на дефолтное или любое другое изображение
 	 * @return bool
+	 * Вносит изменение в таблицу foto присваивая линк заглавного фото
 	 */
 	public function addmainfoto($id, $link, $main_foto_id){
 		$query = "INSERT INTO foto (link, link_id, main_foto_id) VALUES ('$link', '$id', '$main_foto_id')";
@@ -108,6 +109,31 @@ class MainStorage{
 		}
 
 	}
+	/**
+	 * Получение массива названий фотографий, относящихся к определенному каталогу
+	 */
+	public function getfotobyID($id){
+		$query = "SELECT link FROM main, foto WHERE main.id=foto.link_id AND main.id='$id'";
+
+		if ($result = $this->db->query($query)) {
+			$res_array = array();
+			while ($item = $result->fetch_assoc() ){
+				$res_array[] = $item;
+			}
+			return $res_array;
+		}
+			return FALSE;
+	}
+
+
+
+
+
+
+
+
+
+
 
 
 

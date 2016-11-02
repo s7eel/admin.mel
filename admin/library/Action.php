@@ -151,13 +151,14 @@ class Action{
 			if(!empty($title1)&&!empty($title2)&&!empty($height)&&!empty($class)){
 				//Возвращает айди вновь образованного каталога, для дальнейшей вставки дефолтного фото на главную страницу
 				$res = $this->catStorage->addcatalogdata($title1, $title2, $height, $class);
+				//Добавление дефолтного фото
 				if($res != FALSE){
-
 					$this->catStorage->addmainfoto($res, $link='default.jpg', $main_foto_id);
 					$this->redirect();
 				}else{
 					die('I cant add default main_foto');
 				}
+
 			}
 			die('NOT ALL DATA in title1, title2, height, class');
 		}else{
@@ -183,7 +184,7 @@ class Action{
 						//Переносим фото в основную папку, спрашиваем были ошибка при внесении других данных
 						// и вносим фото как заглавное
 								if($res != FALSE){
-									
+
 									$this->catStorage->addmainfoto($res, $file_name, $main_foto_id);
 									$this->redirect();
 								}
@@ -229,6 +230,21 @@ class Action{
 				echo $message;
 			}
 		}
+	}
+
+	/**
+	 * Удаление каталога из базы данных, необходимо скорее всего добавить дополнительный
+	 * вопрос через JS о подтверждении удаления
+	 */
+	public function deletecatalog(){
+		$id = filter_input(INPUT_POST, 'id');
+//		unlink('../assets/img/projects/images/f63faaac030ab4b641af29b906dccb3f.jpg');
+		$array_foto_catalog = $this->catStorage->getfotobyID($id);
+
+			echo "<pre>";
+			var_dump($array_foto_catalog);
+			echo "</pre>";
+
 	}
 
 
