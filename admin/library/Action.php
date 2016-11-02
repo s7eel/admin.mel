@@ -134,6 +134,7 @@ class Action{
 	 * передавать его внутрь функции addcatalogdata();
 	 */
 	public function addcatalog(){
+		$main_foto_id = "Y";
 		$title1 = filter_input(INPUT_POST, 'title1');
 		$title2 = filter_input(INPUT_POST, 'title2');
 		$height = filter_input(INPUT_POST, 'height');
@@ -151,7 +152,8 @@ class Action{
 				//Возвращает айди вновь образованного каталога, для дальнейшей вставки дефолтного фото на главную страницу
 				$res = $this->catStorage->addcatalogdata($title1, $title2, $height, $class);
 				if($res != FALSE){
-					$this->catStorage->addmainfoto($res, $link='default.jpg');
+
+					$this->catStorage->addmainfoto($res, $link='default.jpg', $main_foto_id);
 					$this->redirect();
 				}else{
 					die('I cant add default main_foto');
@@ -181,7 +183,8 @@ class Action{
 						//Переносим фото в основную папку, спрашиваем были ошибка при внесении других данных
 						// и вносим фото как заглавное
 								if($res != FALSE){
-									$this->catStorage->addmainfoto($res, $file_name);
+									
+									$this->catStorage->addmainfoto($res, $file_name, $main_foto_id);
 									$this->redirect();
 								}
 									die('I cant add main_foto into table');

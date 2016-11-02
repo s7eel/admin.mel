@@ -99,8 +99,8 @@ class MainStorage{
 	 * @param $link - ссылка на дефолтное или любое другое изображение
 	 * @return bool
 	 */
-	public function addmainfoto($id, $link){
-		$query = "INSERT INTO foto (link, link_id, main_foto_id) VALUES ('$link', '$id', 'Y')";
+	public function addmainfoto($id, $link, $main_foto_id){
+		$query = "INSERT INTO foto (link, link_id, main_foto_id) VALUES ('$link', '$id', '$main_foto_id')";
 		if($this->db->query($query)){
 			return TRUE;
 		}else{
