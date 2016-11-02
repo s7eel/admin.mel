@@ -24,7 +24,7 @@ class MainStorage{
 	 * возвращаем массив с данными из БД
 	 */
 	public function getcatalogs(){
-		$query = "SELECT main.id, class, link, title1, title2, height FROM main, foto WHERE main.id=foto.link_id AND main_foto_id=\"Y\"";
+		$query = "SELECT main.id, class, link, title1, title2, height FROM main, foto WHERE main.id=foto.link_id AND main_foto_id=\"Y\" ORDER BY foto.id DESC";
 		$result = $this->db->query($query);
 		if ($result) {
 			$catalogs=array();
@@ -109,12 +109,13 @@ class MainStorage{
 		}
 
 	}
+
 	/**
-	 * Получение массива названий фотографий, относящихся к определенному каталогу
+	 * @param $id - Айди входящего каталога
+	 * @return array|bool - Возвращает массив ссылок на фотографии из базы данных или FALSE
 	 */
 	public function getfotobyID($id){
 		$query = "SELECT link FROM main, foto WHERE main.id=foto.link_id AND main.id='$id'";
-
 		if ($result = $this->db->query($query)) {
 			$res_array = array();
 			while ($item = $result->fetch_assoc() ){

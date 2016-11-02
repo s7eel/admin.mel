@@ -7,7 +7,7 @@ function getclassBYname($item){
 			case 'interio_work':$item = 'Общественные интерьеры';break;
 			case 'landscape':$item = 'Ландшафт';break;
 			case 'furniture':$item = 'Мебель';break;
-			default:$item = 'xz';
+			default:$item = 'Произошла ошибка, сообщите администраторам';
 
 		}
 	} else {
@@ -18,7 +18,7 @@ function getclassBYname($item){
 				case 'interio_work':$item.= 'Общественные интерьеры ';break;
 				case 'landscape':$item.= 'Ландшафт ';break;
 				case 'furniture':$item.= 'Мебель ';break;
-				default:$item = 'xz';
+				default:$item = 'Произошла ошибка, сообщите администраторам';
 			}
 		}
 	}
