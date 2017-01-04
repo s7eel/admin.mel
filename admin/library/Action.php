@@ -238,14 +238,21 @@ class Action{
 	 */
 	public function deletecatalog(){
 		$id = filter_input(INPUT_POST, 'id');
+		//Так будем удалять
 		//unlink('../assets/img/projects/images/f63faaac030ab4b641af29b906dccb3f.jpg');
-		$array_foto_catalog = $this->catStorage->getfotobyID($id);
+		//$array_foto_catalog = $this->catStorage->getfotobyID($id);
 		//По логике сейчас надо удалить все фото из папки, потом все ссылки из БД, потом
 		//удалить все из таблицы main;
+//			echo "<pre>";
+//			var_dump($array_foto_catalog);
+//			echo "</pre>";
+		$result = $this->catStorage->deleteCatalogById($id);
+		if($result){
+			$this->redirect();
+		}else{
+			die('something went wrong during delete'.__LINE__);
+		}
 
-			echo "<pre>";
-			var_dump($array_foto_catalog);
-			echo "</pre>";
 
 	}
 
