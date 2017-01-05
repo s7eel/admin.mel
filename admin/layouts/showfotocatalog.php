@@ -20,7 +20,7 @@
 		</div>
 
 	<?php endforeach;?>
-	<?php var_dump($arr_foto); ?>
+
 	<form>
 		<div class="col-4">
 			<h4>Добавить фото в каталог</h4><br>
