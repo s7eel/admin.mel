@@ -420,6 +420,7 @@
 
 
 
+<<<<<<< HEAD
                                     <li class="cbp-item <?= " " . $row['class'] . " cbp-l-grid-masonry-height". $row['height'] ?>">
                                         <a class="cbp-caption" href="/slider.php?id=<?= $row['id'] ?>">
                                             <div class="cbp-caption-defaultWrap">
@@ -439,6 +440,27 @@
                                 endwhile;
                             }
                             ?>
+=======
+			                        <li class="cbp-item <?= " " . $row['class'] . " cbp-l-grid-masonry-height". $row['height'] ?>">
+				                        <a class="cbp-caption" href="/slider.php?id=<?= $row['id'] ?>">
+					                        <div class="cbp-caption-defaultWrap">
+						                        <img style='height:<?=$height?>' src="./assets/img/projects/images/<?= $row['link'] ?>" alt="">
+					                        </div>
+					                        <div class="cbp-caption-activeWrap">
+						                        <div class="cbp-l-caption-alignCenter">
+							                        <div class="cbp-l-caption-body">
+								                        <div class="cbp-l-caption-title"><?= $row['title1'] ?></div>
+								                        <div class="cbp-l-caption-desc"><?= $row['title2'] ?></div>
+							                        </div>
+						                        </div>
+					                        </div>
+				                        </a>
+			                        </li>
+			                        <?php
+		                        endwhile;
+	                        }
+	                        ?>
+>>>>>>> 7740281f30e2b55ebf742a43fe92b8d0852d6da6
 
 
 
@@ -462,7 +484,7 @@
 <!--                                </a>-->
 <!--                            </li>-->
 <!---->
-<!--                            <!-- Portfolio Item (image and description) -->-->
+<!--                            <!-- Portfolio Item (image and description) -->
 <!--                            <li class="cbp-item interio_life  cbp-l-grid-masonry-height1">-->
 <!--                                <a class="cbp-caption" data-title="МЖК Звездный" href="assets/img/projects/3/page.html"">-->
 <!--                                    <div class="cbp-caption-defaultWrap">-->
@@ -480,7 +502,7 @@
 <!--                                </a>-->
 <!--                            </li>-->
 <!---->
-<!--                           <!-- Portfolio Item (image and description) -->-->
+<!--                           <!-- Portfolio Item (image and description) -->
 <!--                            <li class="cbp-item interio_life cbp-l-grid-masonry-height2">-->
 <!--                                <a class="cbp-caption" data-title="Квартира в Днепре" href="assets/img/projects/4/page.html"">-->
 <!--                                    <div class="cbp-caption-defaultWrap">-->
@@ -498,7 +520,7 @@
 <!--                                </a>-->
 <!--                            </li>-->
 <!---->
-<!--                            <!-- Portfolio Item (image and description) -->-->
+<!--                            <!-- Portfolio Item (image and description) -->
 <!--                            <li class="cbp-item landscape cbp-l-grid-masonry-height2">-->
 <!--                                <a class="cbp-caption" data-title="" href="assets/img/projects/5/page.html"">-->
 <!--                                    <div class="cbp-caption-defaultWrap">-->
@@ -519,7 +541,7 @@
 <!--                             -->
 <!---->
 <!---->
-<!--                            <!-- Portfolio Item (image and description) -->-->
+<!--                            <!-- Portfolio Item (image and description) -->
 <!--                            <li class="cbp-item interio_life cbp-l-grid-masonry-height1">-->
 <!--                                <a class="cbp-caption" data-title="" href="assets/img/projects/6/page.html"">-->
 <!--                                    <div class="cbp-caption-defaultWrap">-->
@@ -538,7 +560,7 @@
 <!--                                </a>-->
 <!--                            </li>-->
 <!---->
-<!--                            <!-- Portfolio Item (image and description) -->-->
+<!--                            <!-- Portfolio Item (image and description) -->
 <!--                            <li class="cbp-item interio_life cbp-l-grid-masonry-height1">-->
 <!--                                <a class="cbp-caption" data-title="" href="assets/img/projects/7/page.html"">-->
 <!--                                    <div class="cbp-caption-defaultWrap">-->
@@ -555,7 +577,7 @@
 <!--                                </a>-->
 <!--                            </li>-->
 <!---->
-<!--                            <!-- Portfolio Item (image and description) -->-->
+<!--                            <!-- Portfolio Item (image and description) -->
 <!--                            <li class="cbp-item interio_life  cbp-l-grid-masonry-height1">-->
 <!--                                <a class="cbp-caption" data-title="" href="assets/img/projects/8/page.html"">-->
 <!--                                    <div class="cbp-caption-defaultWrap">-->
@@ -572,7 +594,7 @@
 <!--                                </a>-->
 <!--                            </li>-->
 <!---->
-<!--                            <!-- Portfolio Item (image and description) -->-->
+<!--                            <!-- Portfolio Item (image and description) -->
 <!--                            <li class="cbp-item interio_work cbp-l-grid-masonry-height2">-->
 <!--                                <a class="cbp-caption" data-title="Квартира на Дзержинского<br>2014/05" href="assets/img/projects/9/page.html"">-->
 <!--                                    <div class="cbp-caption-defaultWrap">-->
@@ -589,7 +611,7 @@
 <!--                                </a>-->
 <!--                            </li>-->
 <!---->
-<!--                            <!-- Portfolio Item (image and description) -->-->
+<!--                            <!-- Portfolio Item (image and description) -->
 <!--                            <li class="cbp-item interio_work  cbp-l-grid-masonry-height1">-->
 <!--                                <a class="cbp-caption" data-title="Квартира на Дзержинского<br>2014/05" href="assets/img/projects/10/page.html"">-->
 <!--                                    <div class="cbp-caption-defaultWrap">-->
@@ -606,7 +628,7 @@
 <!--                                </a>-->
 <!--                            </li>-->
 <!---->
-<!--                            <!-- Portfolio Item (image and description) -->-->
+<!--                            <!-- Portfolio Item (image and description) -->
 <!--                            <li class="cbp-item interio_work cbp-l-grid-masonry-height1">-->
 <!--                                <a class="cbp-caption" data-title="Музейный парк<br>2010/01" href="assets/img/projects/11/page.html"">-->
 <!--                                    <div class="cbp-caption-defaultWrap">-->
@@ -623,7 +645,7 @@
 <!--                                </a>-->
 <!--                            </li>-->
 <!---->
-<!--                            <!-- Portfolio Item (image and description) -->-->
+<!--                            <!-- Portfolio Item (image and description) -->
 <!--                            <li class="cbp-item   interio_life cbp-l-grid-masonry-height1">-->
 <!--                                <a class="cbp-caption" data-title="Музейный парк<br>2010/01" href="assets/img/projects/12/page.html"">-->
 <!--                                    <div class="cbp-caption-defaultWrap">-->
