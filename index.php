@@ -397,20 +397,20 @@
 
                     <div id="grid-container" class="cbp-l-grid-masonry">
                         <ul>
-                            <?php
+	                        <?php
                             include_once './admin/functions.php';
-                            include_once './admin/config/config.php';
-                            $mysqli = new mysqli($db['host'],
+	                        include_once './admin/config/config.php';
+	                        $mysqli = new mysqli($db['host'],
                                 $db['user'],
                                 $db['pass'],
                                 $db['name']);
-                            if($mysqli->connect_errno){
-                                echo "error with connection to database ->".$mysqli->connect_error;
-                                die('No connection with database'.__LINE__);
-                            }
-                            $query = "SELECT main.id, class, link, title1, title2, height FROM main, foto WHERE main.id=foto.link_id AND main_foto_id=\"Y\"";
-                            if ($result = $mysqli->query($query)) {
-                                while ($row = $result->fetch_assoc()):
+	                        if($mysqli->connect_errno){
+		                        echo "error with connection to database ->".$mysqli->connect_error;
+		                        die('No connection with database'.__LINE__);
+	                        }
+	                        $query = "SELECT main.id, class, link, title1, title2, height FROM main, foto WHERE main.id=foto.link_id AND main_foto_id=\"Y\"";
+	                        if ($result = $mysqli->query($query)) {
+		                        while ($row = $result->fetch_assoc()):
                                     if($row['height']=='1'){
                                         $height = '260px';
                                     }else{
@@ -420,27 +420,6 @@
 
 
 
-<<<<<<< HEAD
-                                    <li class="cbp-item <?= " " . $row['class'] . " cbp-l-grid-masonry-height". $row['height'] ?>">
-                                        <a class="cbp-caption" href="/slider.php?id=<?= $row['id'] ?>">
-                                            <div class="cbp-caption-defaultWrap">
-                                                <img style='height:<?=$height?>' src="./assets/img/projects/images/<?= $row['link'] ?>" alt="">
-                                                8</div>
-                                            <div class="cbp-caption-activeWrap">
-                                                <div class="cbp-l-caption-alignCenter">
-                                                    <div class="cbp-l-caption-body">
-                                                        <div class="cbp-l-caption-title"><?= $row['title1'] ?></div>
-                                                        <div class="cbp-l-caption-desc"><?= $row['title2'] ?></div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </a>
-                                    </li>
-                                    <?php
-                                endwhile;
-                            }
-                            ?>
-=======
 			                        <li class="cbp-item <?= " " . $row['class'] . " cbp-l-grid-masonry-height". $row['height'] ?>">
 				                        <a class="cbp-caption" href="/slider.php?id=<?= $row['id'] ?>">
 					                        <div class="cbp-caption-defaultWrap">
@@ -456,10 +435,10 @@
 					                        </div>
 				                        </a>
 			                        </li>
-			                        <?php endwhile;
+			                        <?php
+		                        endwhile;
 	                        }
 	                        ?>
->>>>>>> 7740281f30e2b55ebf742a43fe92b8d0852d6da6
 
 
 
