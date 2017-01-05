@@ -1,7 +1,7 @@
 .header {
     background-color: #7c9fb9;
     margin: 10px auto 10px;
-    width: 70%;
+    width: 100%;
     min-width: 800px;
     overflow: hidden;
     height: 100px;
@@ -23,7 +23,7 @@ body {
 
 .col-4 {
     float: left;
-    width: 296px;
+    width: 420px;
     margin-right: 20px;
     margin-top: 20px;
     height: 270px;
