@@ -124,9 +124,10 @@ class MainStorage{
 	/**
 	 * @param $id - Айди входящего каталога
 	 * @return array|bool - Возвращает массив ссылок на фотографии из базы данных или FALSE
+	 * Возврат массива фотографий без ЗАГЛАВНОЙ, для заглавной надо будет делать отдельно
 	 */
 	public function getfotobyID($id){
-		$query = "SELECT link FROM main, foto WHERE main.id=foto.link_id AND main.id='$id'";
+		$query = "SELECT foto.id, link FROM main, foto WHERE main.id=foto.link_id AND main.id='$id' AND main_foto_id=\"N\"";
 		if ($result = $this->db->query($query)) {
 			$res_array = array();
 			while ($item = $result->fetch_assoc() ){
@@ -146,6 +147,8 @@ class MainStorage{
 		}
 
 	}
+
+
 
 
 

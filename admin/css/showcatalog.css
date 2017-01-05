@@ -46,3 +46,12 @@ main {
     min-width: 800px;
     margin: 10px auto;
 }
+.delete_foto{
+    width: 250px;
+    float: left;
+    height: 170px;
+    overflow: hidden;
+    margin: 0 17px 20px 0;
+    background: #ebeff2;
+    padding: 10px 0;
+}

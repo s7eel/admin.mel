@@ -28,7 +28,7 @@
 		</div>
 
 		<div class="col-4">
-			<h4>Добавить Заглавное фото каталога</4h><br>
+			<h4>Добавить Заглавное фото каталога</h4>
 			<input type='file' name="main_foto" accept="image/jpeg"><br>
 			<div>(фото должно быть не более 2МБ)</div>
 		</div>
