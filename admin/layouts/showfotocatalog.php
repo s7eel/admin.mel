@@ -14,6 +14,7 @@
 	foreach ($arr_foto as $key=>$value): ?>
 		<div class="delete_foto">
 
+
 			<a href="<?= $_SERVER['PHP_SELF']?>?action=deletefotobyID&id=<?= $value['id']?>"><img src="../../assets/img/del.png" alt="Удалить"></a>
 			<img  width=250px  src="../../assets/img/projects/images/<?= $value['link']?>">
 
