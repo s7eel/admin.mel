@@ -10,8 +10,8 @@ function __autoload($class){
 
 $db = array(
 	'host' => 'localhost',
-	'user' => 'Marina',
-	'pass' => '6Xv7chMl2F8YldPu',
+	'user' => 'root',
+	'pass' => '',
 	'name' => 'foto',
 );
 
