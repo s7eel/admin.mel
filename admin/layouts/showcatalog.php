@@ -18,7 +18,9 @@
 		<div class="col-4">
 			<h4 >Проект</4h><br>
 			<input type="text" size="20" name="title1" placeholder="Название"><br>
-			<input type="text" size="20" name="title2" placeholder="Дата"><br>
+			<input type="text" size="20" name="title2" placeholder="Дата(title2)"><br>
+			<!-- Можно сделать через дату -->
+            <!--	<input type="date" size="20" name="title2" placeholder="Дата(title2)"><br>-->
 
 				<h4>размер титулього листа</h4>
 			<input type="radio" name="height" value="1">Низкий 270х260<br>
@@ -26,7 +28,7 @@
 		</div>
 
 		<div class="col-4">
-			<h4>Добавить Заглавное фото каталога</4h><br>
+			<h4>Добавить Заглавное фото каталога</h4>
 			<input type='file' name="main_foto" accept="image/jpeg"><br>
 			<div>(фото должно быть не более 2МБ)</div>
 		</div>

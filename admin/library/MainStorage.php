@@ -46,6 +46,13 @@ class MainStorage{
 		return false;
 	}
 
+	/**
+	 * @param $id Получаем айди каталога
+	 * @param $title1 Получаем титл1
+	 * @param $title2 Получаем титл2
+	 * @return bool возвращаем либо сделано либо не сделано )))
+	 * Заносим обновленные параметры титлов
+	 */
 	public function savetitle($id, $title1, $title2){
 		$query = "UPDATE main SET title1='$title1', title2='$title2' WHERE id='$id'";
 		if($this->db->query($query)){
@@ -54,6 +61,11 @@ class MainStorage{
 		return FALSE;
 	}
 
+	/**
+	 * @param $id Получаем айди каталога и его высоты
+	 * @param $height получаем новую высоту каталога
+	 * @return bool возвращаем либо сделано либо не сделано )))
+	 */
 	public function changeHeightFoto($id, $height){
 		$query = "UPDATE main SET height='$height' WHERE id='$id'";
 		$result = $this->db->query($query);
@@ -109,13 +121,13 @@ class MainStorage{
 		}
 
 	}
-
 	/**
 	 * @param $id - Айди входящего каталога
 	 * @return array|bool - Возвращает массив ссылок на фотографии из базы данных или FALSE
+	 * Возврат массива фотографий без ЗАГЛАВНОЙ, для заглавной надо будет делать отдельно
 	 */
 	public function getfotobyID($id){
-		$query = "SELECT link FROM main, foto WHERE main.id=foto.link_id AND main.id='$id'";
+		$query = "SELECT foto.id, link FROM main, foto WHERE main.id=foto.link_id AND main.id='$id' AND main_foto_id=\"N\"";
 		if ($result = $this->db->query($query)) {
 			$res_array = array();
 			while ($item = $result->fetch_assoc() ){
@@ -125,6 +137,18 @@ class MainStorage{
 		}
 			return FALSE;
 	}
+	public function deleteCatalogById($id){
+
+		$query = "DELETE FROM main WHERE id='$id'";
+		if($this->db->query($query)){
+			return TRUE;
+		}else{
+			die('something went wrong during delete'.__LINE__);
+		}
+
+	}
+
+
 
 
 

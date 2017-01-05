@@ -156,11 +156,11 @@ class Action{
 					$this->catStorage->addmainfoto($res, $link='default.jpg', $main_foto_id);
 					$this->redirect();
 				}else{
-					die('I cant add default main_foto');
+					die('I cant add default main_foto'.__LINE__);
 				}
 
 			}
-			die('NOT ALL DATA in title1, title2, height, class');
+			die('NOT ALL DATA in title1, title2, height, class'.__LINE__);
 		}else{
 			//Код отработает если введена заглавная фотография
 			$types = array("image/jpeg",);
@@ -178,7 +178,7 @@ class Action{
 						if(!empty($title1)&&!empty($title2)&&!empty($height)&&!empty($class)){
 							$res = $this->catStorage->addcatalogdata($title1, $title2, $height, $class);
 						}else{
-							die('NOT ALL DATA in title1, title2, height, class');
+							die('NOT ALL DATA in title1, title2, height, class'.__LINE__);
 						}
 						if (move_uploaded_file($main_foto['tmp_name'], $path)) {
 						//Переносим фото в основную папку, спрашиваем были ошибка при внесении других данных
@@ -238,17 +238,37 @@ class Action{
 	 */
 	public function deletecatalog(){
 		$id = filter_input(INPUT_POST, 'id');
+		//Так будем удалять
 		//unlink('../assets/img/projects/images/f63faaac030ab4b641af29b906dccb3f.jpg');
-		$array_foto_catalog = $this->catStorage->getfotobyID($id);
+		//$array_foto_catalog = $this->catStorage->getfotobyID($id);
 		//По логике сейчас надо удалить все фото из папки, потом все ссылки из БД, потом
 		//удалить все из таблицы main;
+//			echo "<pre>";
+//			var_dump($array_foto_catalog);
+//			echo "</pre>";
+		$result = $this->catStorage->deleteCatalogById($id);
+		if($result){
+			$this->redirect();
+		}else{
+			die('something went wrong during delete'.__LINE__);
+		}
 
-			echo "<pre>";
-			var_dump($array_foto_catalog);
-			echo "</pre>";
+
+	}
+	public function changefoto(){
+		$id = filter_input(INPUT_POST, 'id');
+		$title = 'change foto inside catalog';
+		$layout_name = 'layouts/showfotocatalog.php';
+		$arr_foto = $this->catStorage->getfotobyID($id);
+		include_once $this->template_name;
+
 
 	}
 
+	public function deletefotobyID(){
+		$id = $_GET['id'];
+		echo 'hihihihihihihihihihihihihihihihihihihihihihihihihihihi'.$id;
+	}
 
 
 
