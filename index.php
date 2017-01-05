@@ -456,8 +456,7 @@
 					                        </div>
 				                        </a>
 			                        </li>
-			                        <?php
-		                        endwhile;
+			                        <?php endwhile;
 	                        }
 	                        ?>
 >>>>>>> 7740281f30e2b55ebf742a43fe92b8d0852d6da6
