@@ -42,9 +42,14 @@ footer th, footer td{
     text-align: center;
 }
 main {
-    width: 70%;
+    width: 100%;
+    display: block;
+    overflow: hidden;
+      }
+ .container {
+   width: 70%;
     min-width: 800px;
-    margin: 10px auto;
+    margin: 28px auto; 
 }
 .delete_foto{
     width: 250px;
