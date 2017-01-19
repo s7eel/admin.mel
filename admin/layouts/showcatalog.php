@@ -11,50 +11,53 @@
 	</div>
 
 </div>
+
 <main>
+		<div class="container">
+			<div class="row"> 
 
-	<form method="post" action="<?= $_SERVER['PHP_SELF']?>?action=addcatalog" enctype="multipart/form-data">
-		<h4>Добавление каталога</h4>
-		<div class="col-4">
-			<h4 >Проект</4h><br>
-			<input type="text" size="20" name="title1" placeholder="Название"><br>
-			<input type="text" size="20" name="title2" placeholder="Дата(title2)"><br>
-			<!-- Можно сделать через дату -->
-            <!--	<input type="date" size="20" name="title2" placeholder="Дата(title2)"><br>-->
+				<form method="post" action="<?= $_SERVER['PHP_SELF']?>?action=addcatalog" enctype="multipart/form-data">
+					<h4>Добавление каталога</h4>
+					<div class="col-4">
+						<h4 >Проект</4h><br>
+						<input type="text" size="20" name="title1" placeholder="Название"><br>
+						<input type="text" size="20" name="title2" placeholder="Дата(title2)"><br>
+						<!-- Можно сделать через дату -->
+			            <!--	<input type="date" size="20" name="title2" placeholder="Дата(title2)"><br>-->
 
-				<h4>размер титулього листа</h4>
-			<input type="radio" name="height" value="1">Низкий 270х260<br>
-			<input type="radio" name="height" value="2">Высокий 270х405<br>
+							<h4>размер титулього листа</h4>
+						<input type="radio" name="height" value="1">Низкий 270х260<br>
+						<input type="radio" name="height" value="2">Высокий 270х405<br>
+					</div>
+
+					<div class="col-4">
+						<h4>Добавить Заглавное фото каталога</h4>
+						<input type='file' name="main_foto" accept="image/jpeg"><br>
+						<div>(фото должно быть не более 2МБ)</div>
+					</div>
+
+					<div class="col-4">
+						<h4>Категории</h4>
+						<input type="checkbox" name="interio_work" value="interio_work">Общественные интерьеры<br>
+						<input type="checkbox" name="interio_life" value="interio_life">Жилые интерьеры<br>
+						<input type="checkbox" name="furniture" value="furniture">Дизайн мебели<br>
+						<input type="checkbox" name="landscape" value="landscape">Ландшафтный дизайн<br>
+						<input type='submit' value="Создать проект">
+					</div>
+				</form>
+			<div>
 		</div>
-
-		<div class="col-4">
-			<h4>Добавить Заглавное фото каталога</h4>
-			<input type='file' name="main_foto" accept="image/jpeg"><br>
-			<div>(фото должно быть не более 2МБ)</div>
-		</div>
-
-		<div class="col-4">
-			<h4>Категории</h4>
-			<input type="checkbox" name="interio_work" value="interio_work">Общественные интерьеры<br>
-			<input type="checkbox" name="interio_life" value="interio_life">Жилые интерьеры<br>
-			<input type="checkbox" name="furniture" value="furniture">Дизайн мебели<br>
-			<input type="checkbox" name="landscape" value="landscape">Ландшафтный дизайн<br>
-			<input type='submit' value="Создать проект">
-		</div>
-	</form>
-
 </main>
-	<div class="header">
-		<div class="logo">
-			<a href="#"><img src="./images/logo1.png"  width="130px"></a>
-		</div>
-	</div>
+
+
 	<footer>
-		<div class="container_bar_index"><h4>Существующие каталоги</h4>
-		</div>
+		<div class="container_bar_index"><h4>Существующие каталоги</h4></div>
 
 
 
+
+
+	
 		<table class="table table-bordered table-hover">
 			<tr class="warning">
 				<th>Титл</th>
@@ -104,4 +107,11 @@
 	</footer>
 
 
+
+
+	<div class="header">
+		<div class="logo">
+			<a href="#"><img src="./images/logo1.png"  width="130px"></a>
+		</div>
+	</div>
 
