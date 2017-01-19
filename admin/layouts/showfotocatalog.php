@@ -17,10 +17,13 @@
 		<input type='file' name="main_foto" accept="image/jpeg"><br>
 		<div>(фото должно быть не более 2МБ)</div>
 	</div>
-	<a href="index.php"
+	<a href="index.php">
 </form>
 
 </div>
+
+
+
 <?php
 foreach ($arr_foto as $key=>$value): ?>
 	<div class="delete_foto">

@@ -50,12 +50,32 @@
 </main>
 
 
-	<footer>
+	<main>
+	<div class="container">
 		<div class="container_bar_index"><h4>Существующие каталоги</h4></div>
+		
+<?php
+			include_once './functions.php';
+			foreach ($catalogs as $key => $item):
+				$class = getclassBYname($item['class']);
+				$height = getheightOffoto($item['height']);
+				?>
+
+				<div class="catalog">
+					<p>  <?=$item['title1']?></p>
+					<form method="POST">
+						<input type="hidden" value="<?=$item['id']?>" name="id">
+						<input type="hidden" value="<?=$item['height']?>" name="height">
+						<input style="background-image: url(images/del.png);" type="submit" value="" formaction="<?= $_SERVER['PHP_SELF']?>?action=deletecatalog">
+						<input  style="background-image: url(images/rec.png);" type="submit" value="" formaction="<?= $_SERVER['PHP_SELF']?>?action=changefoto">
+					</form>
+ 					<img width=265px src="../assets/img/projects/images/<?=$item['link']?>">
+					  
+						
+</div>
 
 
-
-
+<?php endforeach; ?>
 
 	
 		<table class="table table-bordered table-hover">
@@ -104,7 +124,8 @@
 			</tr>
 <?php endforeach; ?>
 		</table>
-	</footer>
+		 </div>
+	</main>
 
 
 
