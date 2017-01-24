@@ -105,20 +105,25 @@
 					<form method="POST">
 						<input type="hidden" value="<?=$item['id']?>" name="id">
 						<input type="hidden" value="<?=$item['height']?>" name="height">
-<!--						<select>-->
-<!--							<option selected value="">Ничего не делать</option>-->
-<!--							<option value="?action=deletecatalog">Удалить Каталог</option>-->
-<!--							<option value="?action=changefoto">Изменить Фото в Каталоге</option>-->
-<!--							<option value="?action=changetitle">Изменить Титлы Каталога</option>-->
-<!--							<option value="?action=changeheight">Изменить высоту Каталога</option>-->
-<!--							<option value="?action=changecategory">Изменить категорию Каталога</option>-->
-<!--						</select>-->
-						<!--<input type="submit" formaction="" value="Сделать"> -->
+						
+
+						<!-- <select>
+							<option selected value="">Ничего не делать</option>
+							<option value="?action=deletecatalog">Удалить Каталог</option>
+							<option value="?action=changefoto">Изменить Фото в Каталоге</option>
+							<option value="?action=changetitle">Изменить Титлы Каталога</option>
+							<option value="?action=changeheight">Изменить высоту Каталога</option>
+							<option value="?action=changecategory">Изменить категорию Каталога</option>
+						</select>
+						<input type="submit" formaction="" value="Сделать">  -->
+
+						
+						
 						<input type="submit" value="Удалить Каталог" formaction="<?= $_SERVER['PHP_SELF']?>?action=deletecatalog">
-						<input type="submit" value="Изменить Фото в Каталоге" formaction="<?= $_SERVER['PHP_SELF']?>?action=changefoto">
 						<input type="submit" value="Изменить Титлы Каталога" formaction="<?= $_SERVER['PHP_SELF']?>?action=changetitle">
 						<input type="submit" value="Изменить высоту Каталога" formaction="<?= $_SERVER['PHP_SELF']?>?action=changeheight">
 						<input type="submit" value="Изменить категорию Каталога" formaction="<?= $_SERVER['PHP_SELF']?>?action=changecategory">
+						
 					</form>
 				</td>
 			</tr>
